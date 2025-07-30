@@ -24,5 +24,11 @@
 
   <body>
     <%= yield %>
+    <% flash.each do |key, message| %>
+    <div class="alert alert-<%= key == "alert" ? "danger" : "success" %>">
+      <%= "Невозможно совершить действие: " + message %>
+    </div>
+<% end %>
+
   </body>
 </html>

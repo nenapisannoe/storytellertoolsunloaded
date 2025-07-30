@@ -2,6 +2,9 @@
     <h2><%= character.id%></h2>
     <h2><%= character.name%></h2>
     <%= link_to 'Открыть персонажа', character %>
+    <%= form_with url: character_path(character), method: :delete, data: { confirm: 'Точно удалить персонажа?' } do %>
+    <%= submit_tag 'Удалить' %>
 <% end %>
+<% end %>    
 <%= link_to 'Добавить персонажа', new_character_path %>
 <%= link_to 'К игрокам', players_path %>

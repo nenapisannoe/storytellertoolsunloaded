@@ -1,5 +1,5 @@
 <% @players.each do |player| %>
-    <h2><%= player.id%></h2>
+    <!--<h2><%= player.id%></h2> -->
     <h2><%= player.name%></h2> 
     <%= link_to 'Открыть игрока', player %>
     <%= form_with url: player_path(player), method: :delete, data: { confirm: 'Точно удалить игрока?' } do %>

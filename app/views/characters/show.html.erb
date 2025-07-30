@@ -4,4 +4,5 @@
 <h1><%= @character.generation %></h1>
 <h1><%= @character.sire %></h1>
 <h1><%= link_to @character.player.name, player_path(@character.player) %></h1>
+<%= link_to 'Изменить персонажа', edit_character_path(@character) %>
 <%= link_to 'Назад', characters_path %>

@@ -5,19 +5,36 @@ class CharactersController < ApplicationController
   def new
     @character = Character.new
   end
-  def create
-    @character = Character.new (character_params.except(:player_name))
-    player = Player.find_by(name: character_params[:player_name])
-      if player
-        @character.player = player
-        if @character.save
-          redirect_to characters_path
-        else
-          render :new
-        end
-      else
-        render :new
-      end
+def create
+  if Player.none?
+    redirect_to characters_path, alert: "невозможно создать персонажа, когда не существует игрока."
+    return
+  end
+  @character = Character.new(character_params)
+  if @character.save
+    redirect_to characters_path
+  else
+    render :new
+  end
+end
+
+
+  def destroy
+    @character = Character.find(params[:id])
+    @character.destroy
+    redirect_to character_path
+  end
+
+  def edit
+    @character = Character.find(params[:id])
+  end
+
+  def update
+    @character = Character.find(params[:id])
+
+    if @character.update(character_params)
+      redirect_to character_path(@character)
+    end
   end
 
     def show
@@ -27,5 +44,5 @@ end
 
     private
   def character_params
-    params.require(:character).permit(:name, :clan, :generation, :sire, :player_name)
+    params.require(:character).permit(:name, :clan, :generation, :sire,  :player_id)
   end

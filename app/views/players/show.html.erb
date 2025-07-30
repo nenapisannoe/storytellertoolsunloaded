@@ -1,4 +1,4 @@
-<h1><%= @player.id %></h1>
+<!--<h1><%= @player.id %></h1>-->
 <h1><%= @player.name %></h1>
 <% if @player.characters.any? %>
 <ul>
@@ -11,4 +11,5 @@
 <% else %>
   <p>У этого игрока пока нет персонажей</p>
 <% end %>
+<%= link_to 'Изменить игрока', edit_player_path(@player) %>
 <%= link_to 'Назад', players_path %>

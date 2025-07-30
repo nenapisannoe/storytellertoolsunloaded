@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
   root "pages#index"
 
-  resources :players, only: [ :index, :new, :create, :destroy, :show ]
+  resources :players, only: [ :index, :new, :create, :destroy, :show, :edit, :update ]
 
-  resources :characters, only: [ :index, :new, :create, :destroy, :show ]
+  resources :characters, only: [ :index, :new, :create, :destroy, :show, :edit, :update ]
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest

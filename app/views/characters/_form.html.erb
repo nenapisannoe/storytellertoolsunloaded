@@ -2,14 +2,13 @@
 <div>
     <%= f.label :name %>
     <%= f.text_field :name, required: true, minlength: 2, placeholder: "Nick Johnsmith" %>
-    <%= f.label :clan %>
-    <%= f.text_field :clan, required: true, placeholder: "Brujah" %>
+    <%= f.label :clan %><%= f.select :clan, Character::VALID_CLANS, { prompt: "Выберите клан" }, required: true %>
     <%= f.label :sire %>
     <%= f.text_field :sire, required: true, placeholder: "Mr Caine" %>
     <%= f.label :generation %>
     <%= f.text_field :generation, required: true, placeholder: "12" %>
     <%= f.label :player_name %>
-    <%= f.select :player_id, Player.all.map { |p| [p.name, p.id] }, prompt: "Select Player" %>
+    <%= f.collection_select :player_id, Player.all, :id, :name, prompt: "Выберите игрока" %>
 
 </div>
 <%= f.submit "Submit character" %>
