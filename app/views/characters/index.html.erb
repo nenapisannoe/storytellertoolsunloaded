@@ -1,0 +1,7 @@
+<% @characters.each do |character| %>
+    <h2><%= character.id%></h2>
+    <h2><%= character.name%></h2>
+    <%= link_to 'Открыть персонажа', character %>
+<% end %>
+<%= link_to 'Добавить персонажа', new_character_path %>
+<%= link_to 'К игрокам', players_path %>

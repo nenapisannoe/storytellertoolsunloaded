@@ -1,0 +1,7 @@
+<%= form_with model: @player, data: { turbo: false } do |f|%>
+<div>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, minlength: 2, placeholder: "Nick Johnsmith" %>
+</div>
+<%= f.submit "Submit player" %>
+<%end%> 

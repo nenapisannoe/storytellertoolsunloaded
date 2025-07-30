@@ -1,0 +1,7 @@
+<h1><%= @character.id %></h1>
+<h1><%= @character.name %></h1>
+<h1><%= @character.clan %></h1>
+<h1><%= @character.generation %></h1>
+<h1><%= @character.sire %></h1>
+<h1><%= link_to @character.player.name, player_path(@character.player) %></h1>
+<%= link_to 'Назад', characters_path %>

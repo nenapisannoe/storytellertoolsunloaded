@@ -1,0 +1,14 @@
+<h1><%= @player.id %></h1>
+<h1><%= @player.name %></h1>
+<% if @player.characters.any? %>
+<ul>
+    <% @player.characters.each do |character| %>
+     <li>
+        <%= link_to character.name, character_path(character) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>У этого игрока пока нет персонажей</p>
+<% end %>
+<%= link_to 'Назад', players_path %>

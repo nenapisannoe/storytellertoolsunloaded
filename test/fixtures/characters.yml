@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  clan: MyText
+  generation: 1
+  sire: MyText
+  player: one
+
+two:
+  name: MyText
+  clan: MyText
+  generation: 1
+  sire: MyText
+  player: two

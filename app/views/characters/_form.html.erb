@@ -1,0 +1,16 @@
+<%= form_with model: @character, data: { turbo: false } do |f|%>
+<div>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, minlength: 2, placeholder: "Nick Johnsmith" %>
+    <%= f.label :clan %>
+    <%= f.text_field :clan, required: true, placeholder: "Brujah" %>
+    <%= f.label :sire %>
+    <%= f.text_field :sire, required: true, placeholder: "Mr Caine" %>
+    <%= f.label :generation %>
+    <%= f.text_field :generation, required: true, placeholder: "12" %>
+    <%= f.label :player_name %>
+    <%= f.select :player_id, Player.all.map { |p| [p.name, p.id] }, prompt: "Select Player" %>
+
+</div>
+<%= f.submit "Submit character" %>
+<%end%> 
